@@ -2,7 +2,7 @@
 
 
 playButton::playButton(QGraphicsScene *mainScene):
-    QObject(),QGraphicsPixmapItem(),  playButtonScene{mainScene}
+    QObject(),QGraphicsPixmapItem(),  playButtonScene{mainScene}, gameStart{true}
 {
 //    set play button picrute
     setPixmap(QPixmap(":/image/play button.png"));
@@ -14,5 +14,10 @@ playButton::playButton(QGraphicsScene *mainScene):
 
 void playButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    exit(1);
+//    TODO: add a if with gameStart
+    if(gameStart){
+        gameStart=false;
+        auto oneGame=new oneGameView;
+        oneGame->show();
+    }
 }

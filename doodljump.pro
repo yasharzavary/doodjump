@@ -11,10 +11,12 @@ CONFIG += c++17
 SOURCES += \
     gamemenu.cpp \
     main.cpp \
+    onegameview.cpp \
     playbutton.cpp
 
 HEADERS += \
     gamemenu.h \
+    onegameview.h \
     playbutton.h
 
 # Default rules for deployment.
