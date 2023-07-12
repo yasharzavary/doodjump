@@ -36,21 +36,18 @@ void oneGameView::controlStage()
 {
     timeCalculator++;
     if(timeCalculator%5==0){
-        shieldList.push_back(new shield(oneGameScene));
-        if(timeCalculator%2==0){
-            oneGameScene->removeItem(dynamic_cast<shield *>(shieldList[0]));
-            delete shieldList[0];
-        }
+        shieldTemp=new shield(oneGameScene);
 
     }
 
     if(timeCalculator%11==0){
-        springList.push_back(new spring(oneGameScene));
-        if(timeCalculator%2==0){
-            oneGameScene->removeItem(dynamic_cast<spring *>(springList[0]));
-            delete springList[0];
-        }
+        springTemp=new spring(oneGameScene);
     }
+
+    if(timeCalculator%15==0){
+        jetTemp=new jet(oneGameScene);
+    }
+
     for(int i=0; i<20; i++){
         if(stageList[i]->x() <= gameDoodler->x() && gameDoodler->x() <= stageList[i]->x()+50
             && gameDoodler->y()>stageList[i]->y()-5){

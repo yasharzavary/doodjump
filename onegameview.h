@@ -9,20 +9,22 @@
 #include <QGraphicsItem>
 #include <QTimer>
 #include <iostream>
-#include <shield.h>
-#include <spring.h>
+#include "shield.h"
+#include "spring.h"
+#include "jet.h"
 
 class oneGameView : public QGraphicsView
 {
     Q_OBJECT
 private:
+    shield *shieldTemp;
+    spring *springTemp;
+    jet *jetTemp;
+    QList<placeStage *> stageList;
     bool shieldAdded;
     bool springAdded;
     int timeCalculator;
     QTimer *stageControlTimer;
-    QList<spring *> springList;
-    QList<placeStage *> stageList;
-    QList<shield *> shieldList;
     doodler *gameDoodler;
     QGraphicsScene *oneGameScene;
 public:

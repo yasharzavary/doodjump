@@ -1,7 +1,11 @@
 #include "jet.h"
 
-jet::jet(QObject *parent)
-    : QObject{parent}
+
+jet::jet(QGraphicsScene *gameScene)
 {
+    setPixmap(QPixmap());
+
+    gameScene->addItem(this);
+    setPos(rand()%437, rand()%700);
 
 }

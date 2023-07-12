@@ -2,12 +2,14 @@
 #define JET_H
 
 #include <QObject>
+#include <QGraphicsScene>
+#include <QGraphicsPixmapItem>
 
-class jet : public QObject
+class jet : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    explicit jet(QObject *parent = nullptr);
+    explicit jet(QGraphicsScene *gameScene);
 
 signals:
 
