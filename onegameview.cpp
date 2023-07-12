@@ -16,4 +16,12 @@ oneGameView::oneGameView()
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     gameDoodler=new doodler(oneGameScene);
+
+    gameDoodler->setFlag(QGraphicsItem::ItemIsFocusable);
+    gameDoodler->setFocus();
+
+
+    for(int i =0; i<20; i++){
+        stageList.push_back(new placeStage(oneGameScene));
+    }
 }

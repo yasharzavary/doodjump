@@ -13,12 +13,14 @@ SOURCES += \
     gamemenu.cpp \
     main.cpp \
     onegameview.cpp \
+    placestage.cpp \
     playbutton.cpp
 
 HEADERS += \
     doodler.h \
     gamemenu.h \
     onegameview.h \
+    placestage.h \
     playbutton.h
 
 # Default rules for deployment.

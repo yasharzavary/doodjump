@@ -3,5 +3,6 @@
         <file>background.png</file>
         <file>play button.png</file>
         <file>doodler.png</file>
+        <file>stage.png</file>
     </qresource>
 </RCC>

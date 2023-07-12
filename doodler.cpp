@@ -13,9 +13,22 @@ doodler::doodler(QGraphicsScene *gameScene):
     connect(doodlerTimer, SIGNAL(timeout()), this, SLOT(comeDown()));
     doodlerTimer->start(500);
 
+    this->setFlag(QGraphicsItem::ItemIsFocusable);
+    this->setFocus();
+
+}
+
+void doodler::keyPressEvent(QKeyEvent *keyEvent)
+{
+    if(keyEvent->key() == Qt::Key_Right){
+        setPos(x()+15, y());
+    }
+    if(keyEvent->key() == Qt::Key_Left){
+        setPos(x()-15, y());
+    }
 }
 
 void doodler::comeDown()
 {
-    setPos(x(), y()+5);
+    setPos(x(), y()+10);
 }

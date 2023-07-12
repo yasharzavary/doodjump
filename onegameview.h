@@ -5,11 +5,14 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include "doodler.h"
+#include "placestage.h"
+#include <QGraphicsItem>
 
 class oneGameView : public QGraphicsView
 {
     Q_OBJECT
 private:
+    QList<placeStage *> stageList;
     doodler *gameDoodler;
     QGraphicsScene *oneGameScene;
 public:
