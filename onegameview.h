@@ -9,15 +9,17 @@
 #include <QGraphicsItem>
 #include <QTimer>
 #include <iostream>
-
+#include <shield.h>
 
 
 class oneGameView : public QGraphicsView
 {
     Q_OBJECT
 private:
+    int timeCalculator;
     QTimer *stageControlTimer;
     QList<placeStage *> stageList;
+    QList<shield *> shieldList;
     doodler *gameDoodler;
     QGraphicsScene *oneGameScene;
 public:

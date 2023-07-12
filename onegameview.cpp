@@ -1,7 +1,7 @@
 #include "onegameview.h"
 
 
-oneGameView::oneGameView()
+oneGameView::oneGameView():timeCalculator{0}
 {
     oneGameScene=new QGraphicsScene;
     oneGameScene->setSceneRect(0,0,437,700);
@@ -34,6 +34,11 @@ oneGameView::oneGameView()
 
 void oneGameView::controlStage()
 {
+    timeCalculator++;
+    if(timeCalculator%5==0){
+        shieldList.push_back(new shield(oneGameScene));
+    }
+
     for(int i=0; i<20; i++){
         if(stageList[i]->x() <= gameDoodler->x() && gameDoodler->x() <= stageList[i]->x()+50
             && gameDoodler->y()>stageList[i]->y()-5){

@@ -4,6 +4,7 @@
         <file>play button.png</file>
         <file>doodler.png</file>
         <file>stage.png</file>
+        <file>shield.png</file>
     </qresource>
     <qresource prefix="/media">
         <file>gameSound.mp3</file>

@@ -15,6 +15,7 @@ SOURCES += \
     onegameview.cpp \
     placestage.cpp \
     playbutton.cpp \
+    shield.cpp \
     twopersonplaybutton.cpp
 
 HEADERS += \
@@ -23,6 +24,7 @@ HEADERS += \
     onegameview.h \
     placestage.h \
     playbutton.h \
+    shield.h \
     twopersonplaybutton.h
 
 # Default rules for deployment.
