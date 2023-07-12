@@ -11,3 +11,8 @@ playButton::playButton(QGraphicsScene *mainScene):
     mainScene->addItem(this);
     setPos(180, 500);
 }
+
+void playButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
+{
+    exit(1);
+}

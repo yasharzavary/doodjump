@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
+#include <QGraphicsSceneMouseEvent>
 
 class playButton : public QObject, public QGraphicsPixmapItem
 {
@@ -12,7 +13,7 @@ private:
     QGraphicsScene playButtonScene;
 public:
     explicit playButton(QGraphicsScene* mainScene);
-
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
 signals:
 
 };

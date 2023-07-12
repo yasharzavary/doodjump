@@ -17,4 +17,6 @@ gameMenu::gameMenu()
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     pButton= new playButton(menuScene);
+
+
 }

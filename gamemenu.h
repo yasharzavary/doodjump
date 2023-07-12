@@ -6,6 +6,7 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include "playbutton.h"
+#include <QGraphicsTextItem>
 
 class gameMenu : public QGraphicsView
 {
@@ -13,6 +14,7 @@ class gameMenu : public QGraphicsView
 private:
     QGraphicsScene *menuScene;
     playButton *pButton;
+    QGraphicsTextItem *gameName;
 public:
     explicit gameMenu();
 
