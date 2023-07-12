@@ -24,4 +24,20 @@ oneGameView::oneGameView()
     for(int i =0; i<20; i++){
         stageList.push_back(new placeStage(oneGameScene));
     }
+
+    stageControlTimer=new QTimer();
+    connect(stageControlTimer, SIGNAL(timeout()), this, SLOT(controlStage()));
+    stageControlTimer->start(500);
+
+
+}
+
+void oneGameView::controlStage()
+{
+    for(int i=0; i<20; i++){
+        if(stageList[i]->x() <= gameDoodler->x() && gameDoodler->x() <= stageList[i]->x()+50
+            && gameDoodler->y()>stageList[i]->y()-5){
+            gameDoodler->setPos(gameDoodler->x(), gameDoodler->y()-15);
+        }
+    }
 }

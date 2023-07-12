@@ -14,14 +14,16 @@ SOURCES += \
     main.cpp \
     onegameview.cpp \
     placestage.cpp \
-    playbutton.cpp
+    playbutton.cpp \
+    twopersonplaybutton.cpp
 
 HEADERS += \
     doodler.h \
     gamemenu.h \
     onegameview.h \
     placestage.h \
-    playbutton.h
+    playbutton.h \
+    twopersonplaybutton.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
