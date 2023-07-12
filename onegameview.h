@@ -10,14 +10,17 @@
 #include <QTimer>
 #include <iostream>
 #include <shield.h>
-
+#include <spring.h>
 
 class oneGameView : public QGraphicsView
 {
     Q_OBJECT
 private:
+    bool shieldAdded;
+    bool springAdded;
     int timeCalculator;
     QTimer *stageControlTimer;
+    QList<spring *> springList;
     QList<placeStage *> stageList;
     QList<shield *> shieldList;
     doodler *gameDoodler;

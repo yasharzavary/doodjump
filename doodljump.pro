@@ -11,20 +11,24 @@ CONFIG += c++17
 SOURCES += \
     doodler.cpp \
     gamemenu.cpp \
+    jet.cpp \
     main.cpp \
     onegameview.cpp \
     placestage.cpp \
     playbutton.cpp \
     shield.cpp \
+    spring.cpp \
     twopersonplaybutton.cpp
 
 HEADERS += \
     doodler.h \
     gamemenu.h \
+    jet.h \
     onegameview.h \
     placestage.h \
     playbutton.h \
     shield.h \
+    spring.h \
     twopersonplaybutton.h
 
 # Default rules for deployment.
