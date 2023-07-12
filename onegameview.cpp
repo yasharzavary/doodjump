@@ -15,4 +15,5 @@ oneGameView::oneGameView()
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
+    gameDoodler=new doodler(oneGameScene);
 }

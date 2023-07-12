@@ -2,5 +2,6 @@
     <qresource prefix="/image">
         <file>background.png</file>
         <file>play button.png</file>
+        <file>doodler.png</file>
     </qresource>
 </RCC>

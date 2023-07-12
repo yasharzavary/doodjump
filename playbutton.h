@@ -11,6 +11,7 @@ class playButton : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 private:
+    oneGameView *oneGame;
     QGraphicsScene playButtonScene;
     bool gameStart;
 public:

@@ -17,7 +17,7 @@ void playButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
 //    TODO: add a if with gameStart
     if(gameStart){
         gameStart=false;
-        auto oneGame=new oneGameView;
+        oneGame=new oneGameView;
         oneGame->show();
     }
 }
