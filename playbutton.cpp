@@ -1,7 +1,13 @@
 #include "playbutton.h"
 
-playButton::playButton(QObject *parent)
-    : QObject{parent}
-{
 
+playButton::playButton(QGraphicsScene *mainScene):
+    QObject(),QGraphicsPixmapItem(),  playButtonScene{mainScene}
+{
+//    set play button picrute
+    setPixmap(QPixmap(":/image/play button.png"));
+
+//    add item to the scene
+    mainScene->addItem(this);
+    setPos(180, 500);
 }

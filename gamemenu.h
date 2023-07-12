@@ -5,12 +5,14 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QTimer>
+#include "playbutton.h"
 
 class gameMenu : public QGraphicsView
 {
     Q_OBJECT
 private:
     QGraphicsScene *menuScene;
+    playButton *pButton;
 public:
     explicit gameMenu();
 

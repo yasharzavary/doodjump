@@ -5,11 +5,13 @@
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
 
-class playButton : public QObject
+class playButton : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
+private:
+    QGraphicsScene playButtonScene;
 public:
-    explicit playButton(QObject *parent = nullptr);
+    explicit playButton(QGraphicsScene* mainScene);
 
 signals:
 

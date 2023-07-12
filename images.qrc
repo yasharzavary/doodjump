@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/image">
         <file>background.png</file>
+        <file>play button.png</file>
     </qresource>
 </RCC>
