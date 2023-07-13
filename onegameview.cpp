@@ -1,7 +1,7 @@
 #include "onegameview.h"
 
 
-oneGameView::oneGameView():timeCalculator(0), shieldAdded(false), springAdded(false),
+oneGameView::oneGameView(int wichNum):timeCalculator(0), shieldAdded(false), springAdded(false),
     jetAdded(false), levelHolder(1), currentPosition(350), startLevelOneMonster(true),
     createLevelOneMonster(true), startLevelTwoMonster(true), createLevelTwoMonster(true),
     shieldTimer(0), normalGoing(true), canHeart(true)
@@ -18,10 +18,14 @@ oneGameView::oneGameView():timeCalculator(0), shieldAdded(false), springAdded(fa
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    gameDoodler=new doodler(oneGameScene);
-
-    gameDoodler->setFlag(QGraphicsItem::ItemIsFocusable);
-    gameDoodler->setFocus();
+    if(wichNum==0){
+        gameDoodler=new doodler(oneGameScene);
+    }
+    else{
+        gameDoodler= new secondDoodler(oneGameScene);
+    }
+//    gameDoodler->setFlag(QGraphicsItem::);
+//    gameDoodler->setFocus();
 
 
     for(int i =0; i<40; i++){
@@ -107,12 +111,12 @@ void oneGameView::controlStage()
         shieldAdded=true;
     }
 
-    if(timeCalculator%11==0 && springAdded!=true){
+    if(timeCalculator%11==0 && springAdded!=true && levelHolder==1){
         springTemp=new spring(oneGameScene);
         springAdded=true;
     }
 
-    if(timeCalculator%15==0 && jetAdded!=true){
+    if(timeCalculator%15==0 && jetAdded!=true && levelHolder==5){
         jetTemp=new jet(oneGameScene);
         jetAdded=true;
     }
@@ -137,8 +141,8 @@ void oneGameView::controlStage()
     }
 
 //    add spring and control that doodler touch the spring or not
-    if(springAdded && springTemp->x() < gameDoodler->x()+40 && springTemp->x()+75 > gameDoodler->x()+40 &&
-        springTemp->y()-5 < gameDoodler->y()+35 && springTemp->y()+8 > gameDoodler->y()+40)
+    if(springAdded && springTemp->x() < gameDoodler->x()+40 && springTemp->x()+75 > gameDoodler->x()+45 &&
+        springTemp->y()-10 < gameDoodler->y()+75 && springTemp->y()+28 > gameDoodler->y()+75)
     {
         oneGameScene->removeItem(springTemp);
         gameDoodler->changeJumpForce(200);

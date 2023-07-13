@@ -5,6 +5,10 @@
 
 class secondDoodler: public doodler
 {
+private:
+    QTimer *doodlerTimer;
+    QGraphicsScene doodlerScene;
+    int jumpForce;
 public:
     secondDoodler(QGraphicsScene *gameScene);
     void keyPressEvent(QKeyEvent *pressEvent);

@@ -6,7 +6,7 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
 #include "onegameview.h"
-
+#include "secondgameview.h"
 
 
 class twoPersonPlayButton : public QObject, public QGraphicsPixmapItem

@@ -34,6 +34,11 @@ void doodler::changeJumpForce(int changeTemp)
     std::cout<<"it is: "<<jumpForce<<std::endl;
 }
 
+void doodler::focusInEvent(QFocusEvent *event)
+{
+    update();
+}
+
 void doodler::comeDown()
 { 
     if(jumpForce!=0){

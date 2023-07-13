@@ -15,8 +15,8 @@ void twoPersonPlayButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     if(gameStart){
         gameStart=false;
-        firstPersonGameView=new oneGameView;
-        secondPersonGameView=new oneGameView;
+        firstPersonGameView=new oneGameView();
+        secondPersonGameView=new secondGameView();
         firstPersonGameView->show();
         secondPersonGameView->show();
     }

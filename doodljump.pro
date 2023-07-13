@@ -23,6 +23,7 @@ SOURCES += \
     playbutton.cpp \
     playerscore.cpp \
     seconddoodler.cpp \
+    secondgameview.cpp \
     shield.cpp \
     spring.cpp \
     twopersonplaybutton.cpp
@@ -41,6 +42,7 @@ HEADERS += \
     playbutton.h \
     playerscore.h \
     seconddoodler.h \
+    secondgameview.h \
     shield.h \
     spring.h \
     twopersonplaybutton.h
