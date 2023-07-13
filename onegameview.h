@@ -13,11 +13,13 @@
 #include "spring.h"
 #include "jet.h"
 #include "playerscore.h"
+#include "monsterlevel1.h"
 
 class oneGameView : public QGraphicsView
 {
     Q_OBJECT
 private:
+    monsterLevel1 *levelOneMonster;
     playerScore *gameScore;
     int levelHolder;
     int timeCalculator;
@@ -29,6 +31,8 @@ private:
     bool shieldAdded;
     bool springAdded;
     bool jetAdded;
+    bool startLevelOneMonster;
+    bool createLevelOneMonster;
     QTimer *stageControlTimer;
     doodler *gameDoodler;
     QGraphicsScene *oneGameScene;

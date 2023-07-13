@@ -11,6 +11,7 @@
         <file>play button.png</file>
         <file>twoPerson play button.png</file>
         <file>exit.png</file>
+        <file>monsterLevelOne.png</file>
     </qresource>
     <qresource prefix="/media">
         <file>gameSound.mp3</file>
