@@ -33,6 +33,8 @@ private:
     spring *springTemp;
     jet *jetTemp;
     QList<placeStage *> stageList;
+    bool canHeart;
+    bool normalGoing;
     bool shieldAdded;
     bool springAdded;
     bool jetAdded;

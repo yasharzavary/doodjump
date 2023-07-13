@@ -10,7 +10,7 @@ private:
     int score;
 public:
     playerScore(QGraphicsScene *gameScene);
-    void addToTheScore();
+    void addToTheScore(int addedScore=100);
 };
 
 #endif // PLAYERSCORE_H

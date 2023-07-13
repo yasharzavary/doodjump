@@ -4,7 +4,7 @@
 oneGameView::oneGameView():timeCalculator(0), shieldAdded(false), springAdded(false),
     jetAdded(false), levelHolder(1), currentPosition(350), startLevelOneMonster(true),
     createLevelOneMonster(true), startLevelTwoMonster(true), createLevelTwoMonster(true),
-    shieldTimer(0)
+    shieldTimer(0), normalGoing(true), canHeart(true)
 {
     oneGameScene=new QGraphicsScene;
     oneGameScene->setSceneRect(0,0,437,700);
@@ -39,12 +39,13 @@ oneGameView::oneGameView():timeCalculator(0), shieldAdded(false), springAdded(fa
 
 void oneGameView::controlStage()
 {
-    if(shieldAdded){
+    if(canHeart ==false){
         shieldTimer++;
         if(shieldTimer==40){
             shieldTimer=0;
             gameDoodler->setPixmap(QPixmap(":/image/doodler.png"));
             delete shieldTemp;
+            canHeart=true;
             shieldAdded=false;
         }
     }
@@ -55,14 +56,16 @@ void oneGameView::controlStage()
 //        TODO: add the restart menu
         return;
     }
-    else if(createLevelOneMonster==false){
+    else if(createLevelOneMonster==false && normalGoing){
         if((levelOneMonster->x() < gameDoodler->x() && levelOneMonster->x()+100 > gameDoodler->x() &&
              levelOneMonster->y() < gameDoodler->y() && levelOneMonster->y() +90 > gameDoodler->y()) ||
             (levelOneMonster->x() < gameDoodler->x()+75 && levelOneMonster->x()+100 > gameDoodler->x()+75 &&
              levelOneMonster->y() < gameDoodler->y() && levelOneMonster->y() +90 > gameDoodler->y())){
-                if(shieldAdded){
+                if(canHeart == false){
                     gameDoodler->setPos(gameDoodler->x(), gameDoodler->y()+30);
-                    delete shieldTemp;
+//                    delete shieldTemp;
+                    canHeart=true;
+                    gameDoodler->setPixmap(QPixmap(":/image/doodler.png"));
                     shieldAdded=false;
                 }
                 else{
@@ -74,14 +77,16 @@ void oneGameView::controlStage()
                 }
         }
     }
-    else if(createLevelTwoMonster==false){
-        if((levelTwoMonster->x() < gameDoodler->x() && levelTwoMonster->x()+100 > gameDoodler->x() &&
-             levelTwoMonster->y() < gameDoodler->y() && levelTwoMonster->y() +90 > gameDoodler->y()) ||
-            (levelTwoMonster->x() < gameDoodler->x()+75 && levelTwoMonster->x()+100 > gameDoodler->x()+75 &&
-             levelTwoMonster->y() < gameDoodler->y() && levelTwoMonster->y() +90 > gameDoodler->y())){
-                if(shieldAdded){
+    else if(createLevelTwoMonster==false && normalGoing){
+        if((levelTwoMonster->x() < gameDoodler->x()+20 && levelTwoMonster->x()+100 > gameDoodler->x()+20 &&
+             levelTwoMonster->y() < gameDoodler->y()+12 && levelTwoMonster->y() +90 > gameDoodler->y())+12 ||
+            (levelTwoMonster->x() < gameDoodler->x()+50 && levelTwoMonster->x()+100 > gameDoodler->x()+50 &&
+             levelTwoMonster->y() < gameDoodler->y()+12 && levelTwoMonster->y() +90 > gameDoodler->y()+12)){
+                if(canHeart == false){
                     gameDoodler->setPos(gameDoodler->x(), gameDoodler->y()+30);
-                    delete shieldTemp;
+//                    delete shieldTemp;
+                    canHeart=true;
+                    gameDoodler->setPixmap(QPixmap(":/image/doodler.png"));
                     shieldAdded=false;
                 }
                 else{
@@ -125,6 +130,7 @@ void oneGameView::controlStage()
         {
         oneGameScene->removeItem(shieldTemp);
         shieldAdded=false;
+        canHeart=false;
         gameDoodler->setPixmap(QPixmap(":/image/doodlerShield.png"));
     }
 
@@ -142,6 +148,14 @@ void oneGameView::controlStage()
     {
         oneGameScene->removeItem(jetTemp);
         gameDoodler->setPixmap(QPixmap(":/image/doodlerJet.png"));
+        normalGoing=false;
+
+        gameDoodler->changeJumpForce(1000);
+        gameScore->addToTheScore(1000);
+        gameDoodler->setPos(gameDoodler->x(), 350);
+
+        gameDoodler->setPixmap(QPixmap(":/image/doodler.png"));
+        normalGoing=true;
         jetAdded=false;
     }
 

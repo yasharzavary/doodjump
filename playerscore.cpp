@@ -14,8 +14,8 @@ playerScore::playerScore(QGraphicsScene *gameScene): QGraphicsTextItem(), score(
 
 }
 
-void playerScore::addToTheScore()
+void playerScore::addToTheScore(int addedScore)
 {
-    score+=100;
+    score+=addedScore;
     setPlainText(QString::number(score));
 }

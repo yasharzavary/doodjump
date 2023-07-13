@@ -14,8 +14,7 @@
         <file>monsterLevelOne.png</file>
         <file>monsterLevelTwo.png</file>
         <file>gamover.png</file>
+        <file>jet.png</file>
     </qresource>
-    <qresource prefix="/media">
-        <file>gameSound.mp3</file>
-    </qresource>
+    <qresource prefix="/media"/>
 </RCC>
