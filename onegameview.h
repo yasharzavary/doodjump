@@ -20,6 +20,8 @@ class oneGameView : public QGraphicsView
 private:
     playerScore *gameScore;
     int levelHolder;
+    int timeCalculator;
+    int currentPosition;
     shield *shieldTemp;
     spring *springTemp;
     jet *jetTemp;
@@ -27,7 +29,6 @@ private:
     bool shieldAdded;
     bool springAdded;
     bool jetAdded;
-    int timeCalculator;
     QTimer *stageControlTimer;
     doodler *gameDoodler;
     QGraphicsScene *oneGameScene;

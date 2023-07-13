@@ -2,7 +2,7 @@
 
 
 oneGameView::oneGameView():timeCalculator(0), shieldAdded(false), springAdded(false),
-    jetAdded(false), levelHolder(1)
+    jetAdded(false), levelHolder(1), currentPosition(350)
 {
     oneGameScene=new QGraphicsScene;
     oneGameScene->setSceneRect(0,0,437,700);
@@ -113,5 +113,10 @@ void oneGameView::controlStage()
             }
         }
         levelHolder++;
+        currentPosition=500;
+    }
+    if(gameDoodler->y()<currentPosition){
+        gameScore->addToTheScore();
+        currentPosition=gameDoodler->y();
     }
 }
