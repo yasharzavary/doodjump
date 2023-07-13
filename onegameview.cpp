@@ -1,7 +1,8 @@
 #include "onegameview.h"
 
 
-oneGameView::oneGameView():timeCalculator(0), shieldAdded(false), springAdded(false), jetAdded(false)
+oneGameView::oneGameView():timeCalculator(0), shieldAdded(false), springAdded(false),
+    jetAdded(false), levelHolder(1)
 {
     oneGameScene=new QGraphicsScene;
     oneGameScene->setSceneRect(0,0,437,700);
@@ -89,14 +90,26 @@ void oneGameView::controlStage()
         jetAdded=false;
     }
 
+//    win level one and chage the level part
     if(gameDoodler->y() <= 0){
         gameDoodler->setPos(100,500);
         for(int i=0; i<30; i++){
             oneGameScene->removeItem(stageList[0]);
              stageList.removeFirst();
         }
-        for(int i =0; i<30; i++){
-            stageList.push_back(new placeStage(oneGameScene));
+        if(levelHolder>=2){
+            for(int i =0; i<27; i++){
+                stageList.push_back(new placeStage(oneGameScene));
+            }
+            for(int i=0; i<3;i++){
+                stageList.push_back(new placeStage(oneGameScene, 1));
+            }
         }
+        else{
+            for(int i =0; i<30; i++){
+                stageList.push_back(new placeStage(oneGameScene));
+            }
+        }
+        levelHolder++;
     }
 }

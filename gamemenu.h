@@ -8,6 +8,7 @@
 #include "playbutton.h"
 #include <QGraphicsTextItem>
 #include "twopersonplaybutton.h"
+#include "exitbutton.h"
 
 class gameMenu : public QGraphicsView
 {
@@ -15,6 +16,7 @@ class gameMenu : public QGraphicsView
 private:
     QGraphicsScene *menuScene;
     playButton *pButton;
+    exitButton *eButton;
     twoPersonPlayButton *tpButton;
     QGraphicsTextItem *gameName;
 public:

@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/image">
-        <file>play button.png</file>
         <file>background.png</file>
         <file>doodler.png</file>
         <file>coil.png</file>
@@ -8,6 +7,10 @@
         <file>shield.png</file>
         <file>doodlerJet.png</file>
         <file>doodlerShield.png</file>
+        <file>startBackground.png</file>
+        <file>play button.png</file>
+        <file>twoPerson play button.png</file>
+        <file>exit.png</file>
     </qresource>
     <qresource prefix="/media">
         <file>gameSound.mp3</file>

@@ -4,11 +4,11 @@ twoPersonPlayButton::twoPersonPlayButton(QGraphicsScene *mainScene)
     : QObject(),QGraphicsPixmapItem(),  playButtonScene{mainScene}, gameStart{true}
 {
     //    set play button picrute
-    setPixmap(QPixmap(":/image/play button.png"));
+    setPixmap(QPixmap(":/image/twoPerson play button.png"));
 
     //    add item to the scene
     mainScene->addItem(this);
-    setPos(180, 450);
+    setPos(150, 450);
 }
 
 void twoPersonPlayButton::mousePressEvent(QGraphicsSceneMouseEvent *event)

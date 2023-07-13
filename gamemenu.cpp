@@ -9,7 +9,7 @@ gameMenu::gameMenu()
     setScene(menuScene);
 
 //    set picture of the background
-    setBackgroundBrush(QBrush(QImage(":/image/background.png")));
+    setBackgroundBrush(QBrush(QImage(":/image/startBackground.png")));
 
 //    set size of the background
     setFixedSize(437,700);
@@ -18,5 +18,6 @@ gameMenu::gameMenu()
 
     pButton= new playButton(menuScene);
     tpButton= new twoPersonPlayButton(menuScene);
+    eButton= new exitButton(menuScene);
 
 }

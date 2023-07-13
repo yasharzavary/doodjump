@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     doodler.cpp \
+    exitbutton.cpp \
     gamemenu.cpp \
     jet.cpp \
     main.cpp \
@@ -22,6 +23,7 @@ SOURCES += \
 
 HEADERS += \
     doodler.h \
+    exitbutton.h \
     gamemenu.h \
     jet.h \
     onegameview.h \

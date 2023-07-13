@@ -17,6 +17,7 @@ class oneGameView : public QGraphicsView
 {
     Q_OBJECT
 private:
+    int levelHolder;
     shield *shieldTemp;
     spring *springTemp;
     jet *jetTemp;

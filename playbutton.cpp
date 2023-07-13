@@ -9,7 +9,7 @@ playButton::playButton(QGraphicsScene *mainScene):
 
 //    add item to the scene
     mainScene->addItem(this);
-    setPos(180, 400);
+    setPos(150, 400);
 }
 
 void playButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
