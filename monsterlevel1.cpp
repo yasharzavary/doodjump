@@ -7,7 +7,7 @@ monsterLevel1::monsterLevel1(QGraphicsScene *gameScene):
     setPixmap(QPixmap(":/image/monsterLevelOne.png"));
 
     gameScene->addItem(this);
-    setPos(rand()%437, rand()%200);
+    setPos(rand()%300, rand()%200);
 
     if(x() > 400){
         switchMonsterMove=true;
@@ -41,3 +41,8 @@ void monsterLevel1::moveMonster()
 
     }
 }
+
+
+
+
+

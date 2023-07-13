@@ -6,10 +6,13 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
 #include <QTimer>
+#include <doodler.h>
+#include <QList>
 
 class monsterLevelTwo : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
+    friend class oneGameView;
 private:
     QTimer *monsterMoveTimer;
     bool switchMonsterMove;

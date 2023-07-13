@@ -6,7 +6,7 @@ monsterLevelTwo::monsterLevelTwo(QGraphicsScene *gameScene)
     setPixmap(QPixmap(":/image/monsterLevelTwo.png"));
 
     gameScene->addItem(this);
-    setPos(rand()%437, rand()%200);
+    setPos(rand()%300, rand()%200);
 
     if(x() > 400){
         switchMonsterMove=true;
