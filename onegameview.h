@@ -14,12 +14,16 @@
 #include "jet.h"
 #include "playerscore.h"
 #include "monsterlevel1.h"
+#include "monsterleveltwo.h"
+#include "loselabel.h"
 
 class oneGameView : public QGraphicsView
 {
     Q_OBJECT
 private:
+    loseLabel *gameLoseLabel;
     monsterLevel1 *levelOneMonster;
+    monsterLevelTwo *levelTwoMonster;
     playerScore *gameScore;
     int levelHolder;
     int timeCalculator;
@@ -33,6 +37,8 @@ private:
     bool jetAdded;
     bool startLevelOneMonster;
     bool createLevelOneMonster;
+    bool startLevelTwoMonster;
+    bool createLevelTwoMonster;
     QTimer *stageControlTimer;
     doodler *gameDoodler;
     QGraphicsScene *oneGameScene;

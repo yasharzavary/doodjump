@@ -7,14 +7,14 @@
 #include <QGraphicsScene>
 #include <QTimer>
 
-class monsterLevelTwo : public QObject
+class monsterLevelTwo : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 private:
     QTimer *monsterMoveTimer;
     bool switchMonsterMove;
 public:
-    explicit monsterLevelTwo(QObject *parent = nullptr);
+    explicit monsterLevelTwo(QGraphicsScene *gameScene);
     void startMonsterTimer();
 signals:
 public slots:

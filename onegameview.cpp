@@ -3,7 +3,7 @@
 
 oneGameView::oneGameView():timeCalculator(0), shieldAdded(false), springAdded(false),
     jetAdded(false), levelHolder(1), currentPosition(350), startLevelOneMonster(true),
-    createLevelOneMonster(true)
+    createLevelOneMonster(true), startLevelTwoMonster(true), createLevelTwoMonster(true)
 {
     oneGameScene=new QGraphicsScene;
     oneGameScene->setSceneRect(0,0,437,700);
@@ -39,7 +39,9 @@ oneGameView::oneGameView():timeCalculator(0), shieldAdded(false), springAdded(fa
 void oneGameView::controlStage()
 {
     if(gameDoodler->y()+75>=700){
-
+        stageControlTimer->stop();
+        gameLoseLabel=new loseLabel(oneGameScene);
+        return;
     }
 
     timeCalculator++;
@@ -115,11 +117,19 @@ void oneGameView::controlStage()
         }
         if(createLevelOneMonster && levelHolder>=3){
             levelOneMonster=new monsterLevel1(oneGameScene);
-            startLevelOneMonster=false;
+            createLevelOneMonster=false;
         }
         if(startLevelOneMonster && levelHolder>=4){
             levelOneMonster->startMonsterTimer();
             startLevelOneMonster=false;
+        }
+        if(createLevelTwoMonster && levelHolder>=5){
+            levelTwoMonster = new monsterLevelTwo(oneGameScene);
+            createLevelTwoMonster=false;
+        }
+        if(startLevelTwoMonster && levelHolder>=6){
+            levelTwoMonster->startMonsterTimer();
+            startLevelTwoMonster=false;
         }
         levelHolder++;
         currentPosition=500;

@@ -13,6 +13,7 @@ SOURCES += \
     exitbutton.cpp \
     gamemenu.cpp \
     jet.cpp \
+    loselabel.cpp \
     main.cpp \
     monsterlevel1.cpp \
     monsterleveltwo.cpp \
@@ -29,6 +30,7 @@ HEADERS += \
     exitbutton.h \
     gamemenu.h \
     jet.h \
+    loselabel.h \
     monsterlevel1.h \
     monsterleveltwo.h \
     onegameview.h \

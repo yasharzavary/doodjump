@@ -46,6 +46,6 @@ void doodler::comeDown()
         jumpForce=0;
     }
     else{
-        setPos(x(), y()+10);
+        setPos(x(), y()+20);
     }
 }
