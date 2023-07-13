@@ -37,6 +37,7 @@ void oneGameView::controlStage()
     if(gameDoodler->y()+75>=700){
 
     }
+
     timeCalculator++;
     if(timeCalculator%10==0 && shieldAdded!=true){
         shieldTemp=new shield(oneGameScene);
