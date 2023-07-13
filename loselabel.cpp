@@ -1,7 +1,7 @@
 #include "loselabel.h"
 
 loseLabel::loseLabel(QGraphicsScene *gameScene)
-    : QObject(), QGraphicsPixmapItem()
+    :  QGraphicsPixmapItem()
 {
     setPixmap(QPixmap(":image/gamover.png"));
 

@@ -26,7 +26,8 @@ SOURCES += \
     secondgameview.cpp \
     shield.cpp \
     spring.cpp \
-    twopersonplaybutton.cpp
+    twopersonplaybutton.cpp \
+    winlabel.cpp
 
 HEADERS += \
     doodler.h \
@@ -45,7 +46,8 @@ HEADERS += \
     secondgameview.h \
     shield.h \
     spring.h \
-    twopersonplaybutton.h
+    twopersonplaybutton.h \
+    winlabel.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -4,7 +4,7 @@
 oneGameView::oneGameView(int wichNum):timeCalculator(0), shieldAdded(false), springAdded(false),
     jetAdded(false), levelHolder(1), currentPosition(350), startLevelOneMonster(true),
     createLevelOneMonster(true), startLevelTwoMonster(true), createLevelTwoMonster(true),
-    shieldTimer(0), normalGoing(true), canHeart(true)
+    shieldTimer(0), normalGoing(true), canHeart(true), itIsPersonal(true), iLose(false)
 {
     oneGameScene=new QGraphicsScene;
     oneGameScene->setSceneRect(0,0,437,700);
@@ -24,8 +24,9 @@ oneGameView::oneGameView(int wichNum):timeCalculator(0), shieldAdded(false), spr
     else{
         gameDoodler= new secondDoodler(oneGameScene);
     }
-//    gameDoodler->setFlag(QGraphicsItem::);
-//    gameDoodler->setFocus();
+
+    gameDoodler->setFlag(QGraphicsItem::ItemIsFocusable);
+    gameDoodler->setFocus();
 
 
     for(int i =0; i<40; i++){
@@ -43,6 +44,18 @@ oneGameView::oneGameView(int wichNum):timeCalculator(0), shieldAdded(false), spr
 
 }
 
+bool oneGameView::iWin()
+{
+    if(iLose){
+        return true;
+    }
+}
+
+QGraphicsScene oneGameView::sendScene()
+{
+    return oneGameScene;
+}
+
 void oneGameView::controlStage()
 {
     if(canHeart ==false){
@@ -57,8 +70,9 @@ void oneGameView::controlStage()
     }
     if(gameDoodler->y()+75>=700){
         stageControlTimer->stop();
-        gameLoseLabel=new loseLabel(oneGameScene);
         oneGameScene->removeItem(gameDoodler);
+        gameLoseLabel=new loseLabel(oneGameScene);
+
 //        TODO: add the restart menu
         return;
     }

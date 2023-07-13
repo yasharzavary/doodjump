@@ -19,5 +19,6 @@ void playButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
         gameStart=false;
         oneGame=new oneGameView;
         oneGame->show();
+        oneGame->setFocus();
     }
 }

@@ -9,6 +9,10 @@ twoPersonPlayButton::twoPersonPlayButton(QGraphicsScene *mainScene)
     //    add item to the scene
     mainScene->addItem(this);
     setPos(150, 450);
+
+    setTheWineer=new QTimer;
+    connect(setTheWineer, SIGNAL(timeout()), this, SLOT(findWinner()));
+
 }
 
 void twoPersonPlayButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
@@ -19,5 +23,13 @@ void twoPersonPlayButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
         secondPersonGameView=new secondGameView();
         firstPersonGameView->show();
         secondPersonGameView->show();
+//        setTheWineer->start(500);
     }
 }
+
+void twoPersonPlayButton::findWinner()
+{
+    std::cout<<"winner the game";
+}
+
+
