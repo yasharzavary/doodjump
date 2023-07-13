@@ -1,7 +1,7 @@
 #include "onegameview.h"
 
 
-oneGameView::oneGameView():timeCalculator(0), shieldAdded(false)
+oneGameView::oneGameView():timeCalculator(0), shieldAdded(false), springAdded(false), jetAdded(false)
 {
     oneGameScene=new QGraphicsScene;
     oneGameScene->setSceneRect(0,0,437,700);
@@ -34,18 +34,23 @@ oneGameView::oneGameView():timeCalculator(0), shieldAdded(false)
 
 void oneGameView::controlStage()
 {
+    if(gameDoodler->y()+75>=700){
+
+    }
     timeCalculator++;
     if(timeCalculator%10==0 && shieldAdded!=true){
         shieldTemp=new shield(oneGameScene);
         shieldAdded=true;
     }
 
-    if(timeCalculator%11==0){
+    if(timeCalculator%11==0 && springAdded!=true){
         springTemp=new spring(oneGameScene);
+        springAdded=true;
     }
 
-    if(timeCalculator%15==0){
+    if(timeCalculator%15==0 && jetAdded!=true){
         jetTemp=new jet(oneGameScene);
+        jetAdded=true;
     }
 
     for(int i=0; i<30; i++){
@@ -59,5 +64,27 @@ void oneGameView::controlStage()
         shieldTemp->y()-5 < gameDoodler->y()+35 && shieldTemp->y()+50 > gameDoodler->y()+40)
         {
         shieldAdded=false;
+        std::cout<<"touch to the shield"<<std::endl;
+    }
+    if(springAdded && springTemp->x() < gameDoodler->x()+40 && springTemp->x()+75 > gameDoodler->x()+40 &&
+        springTemp->y()-5 < gameDoodler->y()+35 && springTemp->y()+50 > gameDoodler->y()+40)
+    {
+        std::cout<<"touch to the spring"<<std::endl;
+        springAdded=false;
+    }
+    if(jetAdded && jetTemp->x() < gameDoodler->x()+40 && jetTemp->x()+75 > gameDoodler->x()+40 &&
+        jetTemp->y()-5 < gameDoodler->y()+35 && jetTemp->y()+50 > gameDoodler->y()+40)
+    {
+        jetAdded=false;
+    }
+    if(gameDoodler->y() <= 0){
+        gameDoodler->setPos(100,500);
+        for(int i=0; i<30; i++){
+            oneGameScene->removeItem(stageList[0]);
+             stageList.removeFirst();
+        }
+        for(int i =0; i<30; i++){
+            stageList.push_back(new placeStage(oneGameScene));
+        }
     }
 }

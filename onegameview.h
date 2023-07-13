@@ -23,6 +23,7 @@ private:
     QList<placeStage *> stageList;
     bool shieldAdded;
     bool springAdded;
+    bool jetAdded;
     int timeCalculator;
     QTimer *stageControlTimer;
     doodler *gameDoodler;

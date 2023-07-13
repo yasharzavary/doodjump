@@ -1,11 +1,11 @@
 <RCC>
     <qresource prefix="/image">
-        <file>background.png</file>
         <file>play button.png</file>
+        <file>background.png</file>
         <file>doodler.png</file>
+        <file>coil.png</file>
         <file>stage.png</file>
         <file>shield.png</file>
-        <file>coil.png</file>
     </qresource>
     <qresource prefix="/media">
         <file>gameSound.mp3</file>
