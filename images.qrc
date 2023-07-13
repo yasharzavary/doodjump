@@ -6,6 +6,8 @@
         <file>coil.png</file>
         <file>stage.png</file>
         <file>shield.png</file>
+        <file>doodlerJet.png</file>
+        <file>doodlerShield.png</file>
     </qresource>
     <qresource prefix="/media">
         <file>gameSound.mp3</file>
