@@ -26,6 +26,8 @@ oneGameView::oneGameView():timeCalculator(0), shieldAdded(false), springAdded(fa
         stageList.push_back(new placeStage(oneGameScene));
     }
 
+    gameScore=new playerScore(oneGameScene);
+
     stageControlTimer=new QTimer();
     connect(stageControlTimer, SIGNAL(timeout()), this, SLOT(controlStage()));
     stageControlTimer->start(500);
@@ -98,10 +100,10 @@ void oneGameView::controlStage()
              stageList.removeFirst();
         }
         if(levelHolder>=2){
-            for(int i =0; i<27; i++){
+            for(int i =0; i<25-levelHolder; i++){
                 stageList.push_back(new placeStage(oneGameScene));
             }
-            for(int i=0; i<3;i++){
+            for(int i=0; i<levelHolder+5;i++){
                 stageList.push_back(new placeStage(oneGameScene, 1));
             }
         }

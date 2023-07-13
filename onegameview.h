@@ -12,11 +12,13 @@
 #include "shield.h"
 #include "spring.h"
 #include "jet.h"
+#include "playerscore.h"
 
 class oneGameView : public QGraphicsView
 {
     Q_OBJECT
 private:
+    playerScore *gameScore;
     int levelHolder;
     shield *shieldTemp;
     spring *springTemp;

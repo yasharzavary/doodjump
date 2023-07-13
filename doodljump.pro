@@ -17,6 +17,7 @@ SOURCES += \
     onegameview.cpp \
     placestage.cpp \
     playbutton.cpp \
+    playerscore.cpp \
     shield.cpp \
     spring.cpp \
     twopersonplaybutton.cpp
@@ -29,6 +30,7 @@ HEADERS += \
     onegameview.h \
     placestage.h \
     playbutton.h \
+    playerscore.h \
     shield.h \
     spring.h \
     twopersonplaybutton.h
