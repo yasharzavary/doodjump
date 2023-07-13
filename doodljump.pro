@@ -15,6 +15,7 @@ SOURCES += \
     jet.cpp \
     main.cpp \
     monsterlevel1.cpp \
+    monsterleveltwo.cpp \
     onegameview.cpp \
     placestage.cpp \
     playbutton.cpp \
@@ -29,6 +30,7 @@ HEADERS += \
     gamemenu.h \
     jet.h \
     monsterlevel1.h \
+    monsterleveltwo.h \
     onegameview.h \
     placestage.h \
     playbutton.h \
