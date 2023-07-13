@@ -22,6 +22,7 @@ SOURCES += \
     placestage.cpp \
     playbutton.cpp \
     playerscore.cpp \
+    seconddoodler.cpp \
     shield.cpp \
     spring.cpp \
     twopersonplaybutton.cpp
@@ -39,6 +40,7 @@ HEADERS += \
     placestage.h \
     playbutton.h \
     playerscore.h \
+    seconddoodler.h \
     shield.h \
     spring.h \
     twopersonplaybutton.h
