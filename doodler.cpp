@@ -2,7 +2,7 @@
 
 
 doodler::doodler(QGraphicsScene *gameScene):
-    QObject(), QGraphicsPixmapItem(), doodlerScene{gameScene}
+    QObject(), QGraphicsPixmapItem(), doodlerScene{gameScene}, jumpForce(0)
 {
 //    set pic and place of the doodler
     setPixmap(QPixmap(":/image/doodler.png"));
@@ -28,7 +28,24 @@ void doodler::keyPressEvent(QKeyEvent *keyEvent)
     }
 }
 
-void doodler::comeDown()
+void doodler::changeJumpForce(int changeTemp)
 {
-    setPos(x(), y()+10);
+    jumpForce=changeTemp;
+    std::cout<<"it is: "<<jumpForce<<std::endl;
+}
+
+void doodler::comeDown()
+{ 
+    if(jumpForce!=0){
+        std::cout<<"going uuuup"<<std::endl;
+        int jumpTemp=0;
+        while(jumpTemp!=jumpForce){
+            setPos(x(), y()-1);
+            jumpTemp++;
+        }
+        jumpForce=0;
+    }
+    else{
+        setPos(x(), y()+10);
+    }
 }

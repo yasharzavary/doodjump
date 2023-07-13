@@ -37,7 +37,6 @@ void oneGameView::controlStage()
     timeCalculator++;
     if(timeCalculator%5==0){
         shieldTemp=new shield(oneGameScene);
-
     }
 
     if(timeCalculator%11==0){
@@ -49,9 +48,10 @@ void oneGameView::controlStage()
     }
 
     for(int i=0; i<20; i++){
-        if(stageList[i]->x() <= gameDoodler->x() && gameDoodler->x() <= stageList[i]->x()+50
-            && gameDoodler->y()>stageList[i]->y()-5){
-            gameDoodler->setPos(gameDoodler->x(), gameDoodler->y()-15);
+        if(stageList[i]->x() < gameDoodler->x()+40 && stageList[i]->x()+75 > gameDoodler->x()+45
+            && stageList[i]->y()-10 < gameDoodler->y()+75 && stageList[i]->y()+4 > gameDoodler->y()+75 ){
+            std::cout<<"it is in the up part\n";
+            gameDoodler->changeJumpForce(70);
         }
     }
 }
