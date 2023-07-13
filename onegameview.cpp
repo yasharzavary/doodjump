@@ -1,7 +1,7 @@
 #include "onegameview.h"
 
 
-oneGameView::oneGameView():timeCalculator{0}, shieldAdded{false}
+oneGameView::oneGameView():timeCalculator(0), shieldAdded(false)
 {
     oneGameScene=new QGraphicsScene;
     oneGameScene->setSceneRect(0,0,437,700);
@@ -21,7 +21,7 @@ oneGameView::oneGameView():timeCalculator{0}, shieldAdded{false}
     gameDoodler->setFocus();
 
 
-    for(int i =0; i<20; i++){
+    for(int i =0; i<30; i++){
         stageList.push_back(new placeStage(oneGameScene));
     }
 
@@ -35,8 +35,9 @@ oneGameView::oneGameView():timeCalculator{0}, shieldAdded{false}
 void oneGameView::controlStage()
 {
     timeCalculator++;
-    if(timeCalculator%5==0){
+    if(timeCalculator%10==0 && shieldAdded!=true){
         shieldTemp=new shield(oneGameScene);
+        shieldAdded=true;
     }
 
     if(timeCalculator%11==0){
@@ -47,11 +48,16 @@ void oneGameView::controlStage()
         jetTemp=new jet(oneGameScene);
     }
 
-    for(int i=0; i<20; i++){
+    for(int i=0; i<30; i++){
         if(stageList[i]->x() < gameDoodler->x()+40 && stageList[i]->x()+75 > gameDoodler->x()+45
             && stageList[i]->y()-10 < gameDoodler->y()+75 && stageList[i]->y()+4 > gameDoodler->y()+75 ){
             std::cout<<"it is in the up part\n";
-            gameDoodler->changeJumpForce(70);
+            gameDoodler->changeJumpForce(120);
         }
+    }
+    if(shieldAdded && shieldTemp->x() < gameDoodler->x()+40 && shieldTemp->x()+75 > gameDoodler->x()+40 &&
+        shieldTemp->y()-5 < gameDoodler->y()+35 && shieldTemp->y()+50 > gameDoodler->y()+40)
+        {
+        shieldAdded=false;
     }
 }
