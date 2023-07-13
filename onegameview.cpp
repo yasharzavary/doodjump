@@ -3,7 +3,8 @@
 
 oneGameView::oneGameView():timeCalculator(0), shieldAdded(false), springAdded(false),
     jetAdded(false), levelHolder(1), currentPosition(350), startLevelOneMonster(true),
-    createLevelOneMonster(true), startLevelTwoMonster(true), createLevelTwoMonster(true)
+    createLevelOneMonster(true), startLevelTwoMonster(true), createLevelTwoMonster(true),
+    shieldTimer(0)
 {
     oneGameScene=new QGraphicsScene;
     oneGameScene->setSceneRect(0,0,437,700);
@@ -23,7 +24,7 @@ oneGameView::oneGameView():timeCalculator(0), shieldAdded(false), springAdded(fa
     gameDoodler->setFocus();
 
 
-    for(int i =0; i<30; i++){
+    for(int i =0; i<40; i++){
         stageList.push_back(new placeStage(oneGameScene));
     }
 
@@ -38,6 +39,15 @@ oneGameView::oneGameView():timeCalculator(0), shieldAdded(false), springAdded(fa
 
 void oneGameView::controlStage()
 {
+    if(shieldAdded){
+        shieldTimer++;
+        if(shieldTimer==40){
+            shieldTimer=0;
+            gameDoodler->setPixmap(QPixmap(":/image/doodler.png"));
+            delete shieldTemp;
+            shieldAdded=false;
+        }
+    }
     if(gameDoodler->y()+75>=700){
         stageControlTimer->stop();
         gameLoseLabel=new loseLabel(oneGameScene);
@@ -50,12 +60,18 @@ void oneGameView::controlStage()
              levelOneMonster->y() < gameDoodler->y() && levelOneMonster->y() +90 > gameDoodler->y()) ||
             (levelOneMonster->x() < gameDoodler->x()+75 && levelOneMonster->x()+100 > gameDoodler->x()+75 &&
              levelOneMonster->y() < gameDoodler->y() && levelOneMonster->y() +90 > gameDoodler->y())){
-
-            stageControlTimer->stop();
-            gameLoseLabel=new loseLabel(oneGameScene);
-            oneGameScene->removeItem(gameDoodler);
-            //        TODO: add the restart menu
-            return;
+                if(shieldAdded){
+                    gameDoodler->setPos(gameDoodler->x(), gameDoodler->y()+30);
+                    delete shieldTemp;
+                    shieldAdded=false;
+                }
+                else{
+                    stageControlTimer->stop();
+                    gameLoseLabel=new loseLabel(oneGameScene);
+                    oneGameScene->removeItem(gameDoodler);
+                    //        TODO: add the restart menu
+                    return;
+                }
         }
     }
     else if(createLevelTwoMonster==false){
@@ -63,17 +79,23 @@ void oneGameView::controlStage()
              levelTwoMonster->y() < gameDoodler->y() && levelTwoMonster->y() +90 > gameDoodler->y()) ||
             (levelTwoMonster->x() < gameDoodler->x()+75 && levelTwoMonster->x()+100 > gameDoodler->x()+75 &&
              levelTwoMonster->y() < gameDoodler->y() && levelTwoMonster->y() +90 > gameDoodler->y())){
-
-            stageControlTimer->stop();
-            gameLoseLabel=new loseLabel(oneGameScene);
-            oneGameScene->removeItem(gameDoodler);
-            //        TODO: add the restart menu
-            return;
+                if(shieldAdded){
+                    gameDoodler->setPos(gameDoodler->x(), gameDoodler->y()+30);
+                    delete shieldTemp;
+                    shieldAdded=false;
+                }
+                else{
+                    stageControlTimer->stop();
+                    gameLoseLabel=new loseLabel(oneGameScene);
+                    oneGameScene->removeItem(gameDoodler);
+                    //        TODO: add the restart menu
+                    return;
+                }
         }
     }
 
     timeCalculator++;
-    if(timeCalculator%10==0 && shieldAdded!=true){
+    if(timeCalculator%10==0 && shieldAdded!=true && levelHolder==4){
         shieldTemp=new shield(oneGameScene);
         shieldAdded=true;
     }
@@ -89,9 +111,9 @@ void oneGameView::controlStage()
     }
 
 //    control that doodler touch wich one of the stages
-    for(int i=0; i<30; i++){
+    for(int i=0; i<40; i++){
         if(stageList[i]->x() < gameDoodler->x()+40 && stageList[i]->x()+75 > gameDoodler->x()+45
-            && stageList[i]->y()-30 < gameDoodler->y()+75 && stageList[i]->y()+15 > gameDoodler->y()+75 ){
+            && stageList[i]->y()-10 < gameDoodler->y()+75 && stageList[i]->y()+15 > gameDoodler->y()+75 ){
             std::cout<<"it is in the up part\n";
             gameDoodler->changeJumpForce(120);
         }
@@ -126,12 +148,12 @@ void oneGameView::controlStage()
 //    win level one and chage the level part
     if(gameDoodler->y() <= 0){
         gameDoodler->setPos(100,500);
-        for(int i=0; i<30; i++){
+        for(int i=0; i<40; i++){
             oneGameScene->removeItem(stageList[0]);
              stageList.removeFirst();
         }
         if(levelHolder>=2){
-            for(int i =0; i<25-levelHolder; i++){
+            for(int i =0; i<35-levelHolder; i++){
                 stageList.push_back(new placeStage(oneGameScene));
             }
             for(int i=0; i<levelHolder+5;i++){
@@ -139,7 +161,7 @@ void oneGameView::controlStage()
             }
         }
         else{
-            for(int i =0; i<30; i++){
+            for(int i =0; i<40; i++){
                 stageList.push_back(new placeStage(oneGameScene));
             }
         }
@@ -151,11 +173,11 @@ void oneGameView::controlStage()
             levelOneMonster->startMonsterTimer();
             startLevelOneMonster=false;
         }
-        if(createLevelTwoMonster && levelHolder>=1){
+        if(createLevelTwoMonster && levelHolder>=5){
             levelTwoMonster = new monsterLevelTwo(oneGameScene);
             createLevelTwoMonster=false;
         }
-        if(startLevelTwoMonster && levelHolder>=2){
+        if(startLevelTwoMonster && levelHolder>=6){
             levelTwoMonster->startMonsterTimer();
             startLevelTwoMonster=false;
         }

@@ -25,6 +25,7 @@ private:
     monsterLevel1 *levelOneMonster;
     monsterLevelTwo *levelTwoMonster;
     playerScore *gameScore;
+    int shieldTimer;
     int levelHolder;
     int timeCalculator;
     int currentPosition;
