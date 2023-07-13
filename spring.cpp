@@ -6,6 +6,6 @@ spring::spring(QGraphicsScene *gameScene)
     setPixmap(QPixmap(":image/coil.png"));
 
     gameScene->addItem(this);
-    setPos(rand()%473, rand()%700);
+    setPos(rand()%300, rand()%600);
 
 }

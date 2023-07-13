@@ -8,5 +8,5 @@ shield::shield(QGraphicsScene *gameScene):
 
     setPixmap(QPixmap(":image/shield.png"));
     gameScene->addItem(this);
-    setPos(rand()%473, rand()%700);
+    setPos(rand()%300, rand()%700);
 }

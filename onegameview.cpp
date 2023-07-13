@@ -30,6 +30,8 @@ oneGameView::oneGameView():timeCalculator(0), shieldAdded(false), springAdded(fa
 
     gameScore=new playerScore(oneGameScene);
 
+    levelHolderToWrite=new levelWriter(oneGameScene);
+
     stageControlTimer=new QTimer();
     connect(stageControlTimer, SIGNAL(timeout()), this, SLOT(controlStage()));
     stageControlTimer->start(500);
@@ -139,6 +141,7 @@ void oneGameView::controlStage()
         springTemp->y()-5 < gameDoodler->y()+35 && springTemp->y()+8 > gameDoodler->y()+40)
     {
         oneGameScene->removeItem(springTemp);
+        gameDoodler->changeJumpForce(200);
         springAdded=false;
     }
 
@@ -154,6 +157,7 @@ void oneGameView::controlStage()
         gameScore->addToTheScore(1000);
         gameDoodler->setPos(gameDoodler->x(), 350);
 
+        for(int i=0; i<1000000;i++){}
         gameDoodler->setPixmap(QPixmap(":/image/doodler.png"));
         normalGoing=true;
         jetAdded=false;
@@ -161,6 +165,7 @@ void oneGameView::controlStage()
 
 //    win level one and chage the level part
     if(gameDoodler->y() <= 0){
+        levelHolderToWrite->getUpperTheLevel();
         gameDoodler->setPos(100,500);
         for(int i=0; i<40; i++){
             oneGameScene->removeItem(stageList[0]);

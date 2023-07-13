@@ -16,11 +16,13 @@
 #include "monsterlevel1.h"
 #include "monsterleveltwo.h"
 #include "loselabel.h"
+#include "levelwriter.h"
 
 class oneGameView : public QGraphicsView
 {
     Q_OBJECT
 private:
+    levelWriter *levelHolderToWrite;
     loseLabel *gameLoseLabel;
     monsterLevel1 *levelOneMonster;
     monsterLevelTwo *levelTwoMonster;
